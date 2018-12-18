@@ -1,3 +1,6 @@
+Parachute Time management system (aka. OUTimeSheets)
+====================================================
+
 Disclaimer
 ---------
 
