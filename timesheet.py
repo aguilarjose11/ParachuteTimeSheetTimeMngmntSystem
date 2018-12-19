@@ -7,12 +7,14 @@ import menulist
 def launch():
     main = menulist.mainMenu()
     choice = menu.runmenu(main)
-    if choice == "2":
-        exit(0)
+    if choice == "0":
+        login = menulist.loginMenu()
+        choice = menu.runmenu(login)
     elif choice == "1":
-        pass
-    elif choice == "0":
-        pass
+        register = menulist.registerMenu()
+        choice = menu.runmenu(register) # menu.menurunner(register)
+    elif choice == "2":
+        exit(0)
     else:
         pass # shall never get to this!
 
