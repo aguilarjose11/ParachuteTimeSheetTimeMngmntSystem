@@ -17,7 +17,7 @@ modules.
 
 the program is divided into 4 modules with 3 `menu.py, menulist.py, tstools.py` acting as libraries and 1 `timesheet.py` acting as the main program.
 
-###timesheet.py
+### timesheet.py
 
 timesheet.py contains all of the code in charge of the execution of the program. for organization, no declarations other than `launch()` have been done here.
 
@@ -45,7 +45,7 @@ def launch():
         pass # shall never get to this!
 ```
 
-###menu.py
+### menu.py
 
 The menu library holds all of the declarations for the menus used by the `timesheet.py` program.
 
@@ -66,16 +66,16 @@ class Menu:
 def runmenu(exec):
   pass
 ```
-####method definitions.
+#### method definitions.
 * the `menu(self)` function is intended to contain a single-time-print menu.
 
 * the `getchoice(self)` function is intended to control the movement of a cursor on the menu printed by `menu()`.
 
-..* `getchoice(self)` should be added a choice argument for the sake of recursivity. left out of the astract deffinition for the sake of flexibility
+* `getchoice(self)` should be added a choice argument for the sake of recursivity. left out of the astract deffinition for the sake of flexibility
 
 * the `runmenu(self)`
 
-###menulist.py
+### menulist.py
 
 The menulist module is in charge of holding the definition of the classes that inherit from the Menu class from `menu.py` module. this classes are to be run by the `runmenu()` method inside of the `timesheet.py` program. inside, there is three definitions:
 
@@ -96,7 +96,7 @@ class loginMenu(menu.Menu):
 ```
 
 these classes are to be instantiated inside the `timesheet.py` program.
-####Classes.
+#### Classes.
 
 * `mainMenu` is in charge of the main menu.
 
@@ -104,7 +104,7 @@ these classes are to be instantiated inside the `timesheet.py` program.
 
 * `loginMenu` is in charge of the login process menu.
 
-###tstools.py
+### tstools.py
 
 this module holds all functions being used by the modules and the program itself that hold a specific job. these methods were defined in a different module for the sake of organization, for these methods could be used y multiple modules at once.
 
@@ -114,6 +114,6 @@ def getcmdxandy():
   pass
 ```
 
-####Methods.
+#### Methods.
 
 * `getcmdxandy()` method returns the x and y size of the current cmd window in characters of length.
