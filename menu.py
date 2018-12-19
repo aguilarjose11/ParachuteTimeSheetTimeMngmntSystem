@@ -17,6 +17,5 @@ def runmenu(exec):
     choice = 0
     while(not(type(choice) == str)):
         # testing line
-        input("Click enter to continue . . . (will crash if enter)")
-        choice = exec.getchoice()
+        choice = exec.getchoice(choice)
     return choice
