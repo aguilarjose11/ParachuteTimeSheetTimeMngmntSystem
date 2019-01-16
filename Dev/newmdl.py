@@ -19,7 +19,7 @@ def setup(name):
     n = len(dir2)
     proj = dir2[n-3]
     mdlfile = open("{0}.py".format(modulehome), "w+")
-    text = "# module {0}\ndef modulestatus():\n    status = {{'status' : 'dev',\n              'project' : '{1}',\n              'vercion' : '1.0.0.0',\n              'last' : '{2}'}}\n    return status\n\ndef test():\n    pass # code to run.\n".format(name, proj, datetime.datetime.now())
+    text = "# module {0}\ndef modulestatus():\n    status = {{'status' : 'dev',\n              'project' : '{1}',\n              'version' : '1.0.0.0',\n              'last' : '{2}'}}\n    return status\n\ndef main_dev():\n    pass # code to run.\n".format(name, proj, datetime.datetime.now())
     mdlfile.write(text)
     mdlfile.close()
     print("module succesfully setup at {0}".format(os.getcwd()))
