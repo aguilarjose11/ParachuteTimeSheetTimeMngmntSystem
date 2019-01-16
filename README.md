@@ -156,19 +156,19 @@ status = {'status' : 'zzz',
 
 The status of the module can be changed by assigning a new value to the status key inside of the dictionary inside of the method by assigning one of the _six development statuses_:
 
-* "dev": Module is on development.
+* `"dev"`: Module is on development.
 
-* "dbg": Module is on debugging.
+* `"dbg"`: Module is on debugging.
 
-* "mrg": Module is ready to merge.
+* `"mrg"`: Module is ready to merge.
 
-* "hlt": Module has be brought to a halt.
+* `"hlt"`: Module has be brought to a halt.
 
-* "zzz": Module has become deprecated/canceled.
+* `"zzz"`: Module has become deprecated/canceled.
 
-* "ooo": Module is completed and merged with main program.
+* `"ooo"`: Module is completed and merged with main program.
 
-_Note that the merging process has to be done by hand, the program DOEAS NOT touch any code outside of the environment where DevDelta is installed_
+Important: _Note that the merging process has to be done by hand, the program DOES NOT touch any code outside of the environment where DevDelta is installed_
 
 ### `main_dev()`
 
