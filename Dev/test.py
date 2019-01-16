@@ -84,6 +84,7 @@ def launch():
     while True:
         key = ord(getch())
         if key == 27:
+            os.system('cls')
             exit(0)
         elif key == 72: # arrow up.
             if step == 1:
