@@ -117,3 +117,59 @@ def getcmdxandy():
 #### Methods.
 
 * `getcmdxandy()` method returns the x and y size of the current cmd window in characters of length.
+
+About DevDelta environment.
+==========================
+
+Inside the Dev folder, a version development tester program resides. as of Jan 15, 2019, the testing program (namely DevDelta) is in work in version 1.0 and can be used and installed by moving the files `Dev\newmdl.py`, `Dev\test.py`, and `Dev\devdelta.pyd` into your module and version development environment.
+
+Running DevDelta.
+-----------------
+
+In order to run DevDelta, we must first create a module using the `newmdl.py` program. A new module is created once the `newmdl.py` script is done. a module consists of a folder with the name of the module and "module" attached at the beginning. you can make a module folder by simply naming the folder as `module{module name}`. Secondly, a `.py` file is created with the name of the module folder. Inside of this python file we can find two methods:
+
+`moduleExample\moduleExample.py`
+
+```python
+# module Example
+def modulestatus():
+    status = {'status' : 'dev',
+              'project' : '%projectname%',
+              'vercion' : '1.0.0.0',
+              'last' : '%current date% %curent time%'}
+    return status
+
+def main_dev():
+  pass #code to run.
+```
+
+### `modulestatus()`
+
+This method contains a dictionary with the information related to the current status of the module, version, project name (uses the name of the folder containing the DevDelta enviroment, aka `{this folder}\{DevDelta enviroment}\test.py`), and the creation time.
+
+```python
+status = {'status' : 'zzz',
+              'project' : 'ParachuteTSMSys',
+              'version' : '1.0.0.0',
+              'last' : '2019-01-15 18:40:57.340831'}
+```
+
+The status of the module can be changed by assigning a new value to the status key inside of the dictionary inside of the method by assigning one of the _six development statuses_:
+
+* `"dev"`: Module is on development.
+
+* `"dbg"`: Module is on debugging.
+
+* `"mrg"`: Module is ready to merge.
+
+* `"hlt"`: Module has be brought to a halt.
+
+* `"zzz"`: Module has become deprecated/canceled.
+
+* `"ooo"`: Module is completed and merged with main program.
+
+Important: _Note that the merging process has to be done by hand, the program DOES NOT touch any code outside of the environment where DevDelta is installed_
+
+### `main_dev()`
+
+This method will contain all of the code to be developed and be tested. this is _the only method being called by test.py._ code does not have to be contained only on this file though, folders can be made inside of the module folder as well as adding files to the folder that are to be used by the module.

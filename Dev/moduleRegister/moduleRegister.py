@@ -2,6 +2,9 @@
 def modulestatus():
     status = {'status' : 'mrg',
               'project' : '%projectname%',
-              'vercion' : '1.0.0.0',
+              'version' : '1.0.0.0',
               'last' : '%current date% %curent time%'}
     return status
+
+def main_dev():
+    print("this is a module in development")
