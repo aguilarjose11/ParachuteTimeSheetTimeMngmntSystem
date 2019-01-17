@@ -108,6 +108,7 @@ def launch():
                 os.system('cls')
                 setup()
                 sys.stdout.write("\033[{0};17H->".format(map[1]))
+                step = 1
 
 if __name__ == "__main__":
     launch()
