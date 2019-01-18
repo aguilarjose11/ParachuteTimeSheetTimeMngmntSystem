@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   one:
     docker:
@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello World! from job two."
-      
+
 workflows:
   verson: 2
   one_and_two:
