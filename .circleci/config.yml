@@ -14,7 +14,7 @@ jobs:
       - run: echo "Hello World! from job two."
 
 workflows:
-  verson: 2
+  verson: 2.1
   one_and_two:
     jobs:
       - one
