@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: echo "Hello World! from job two."
 
+# workflow setup area.
 workflows:
   version: 2
   one_and_two:
