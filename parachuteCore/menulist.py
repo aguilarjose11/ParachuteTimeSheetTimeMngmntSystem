@@ -1,7 +1,7 @@
 # menulist.py contains all menus used in timesheet.py
 
-import menu
-from tstools import getcmdxandy
+from parachuteCore import menu
+from parachuteCore.tstools import getcmdxandy
 # --- personalized classes ---
 import sys
 import os

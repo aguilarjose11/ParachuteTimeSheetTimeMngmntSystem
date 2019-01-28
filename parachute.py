@@ -1,7 +1,7 @@
 # timesheet main program.
-import menu
-from tstools import getcmdxandy
-import menulist
+from parachuteCore import menulist, menu
+from parachuteCore.tstools import getcmdxandy
+
 # --- personalized classes ---
 
 def launch():
