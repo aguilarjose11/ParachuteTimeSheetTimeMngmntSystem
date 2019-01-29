@@ -48,7 +48,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m pytest -v --cov=parachuteCore --cov=parachute
+            python -m pytest -v --cov=parachuteCore --cov=parachute --ignore=.\env
             python -m flake8 --exclude=./env --ignore=E501 --statistics
 
 
