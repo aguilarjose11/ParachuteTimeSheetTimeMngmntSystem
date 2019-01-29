@@ -11,6 +11,7 @@ try:
 except (ImportError, KeyError):
     CTYPES_IMPORTED = False
 
+
 def getcmdxandy():
     if(CTYPES_IMPORTED):
         h = windll.kernel32.GetStdHandle(-12)
@@ -28,6 +29,7 @@ def getcmdxandy():
     else:
         return -1
 
+
 # Getch() replacement
 class _Getch:
     """Gets a single character from standard input.  Does not echo to the
@@ -38,7 +40,9 @@ screen."""
         except ImportError:
             self.impl = _GetchUnix()
 
-    def __call__(self): return self.impl()
+    def __call__(self):
+        return self.impl()
+
 
 # getch for linux
 class _GetchUnix:
@@ -55,6 +59,7 @@ class _GetchUnix:
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
+
 
 # getch for windows.
 class _GetchWindows:

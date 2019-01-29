@@ -2,7 +2,6 @@
 from parachuteCore import menulist, menu
 from parachuteCore.tstools import getcmdxandy
 
-# --- personalized classes ---
 
 def launch():
     main = menulist.mainMenu()
@@ -17,6 +16,7 @@ def launch():
         exit(0)
     else:
         pass # shall never get to this!
+
 
 # main runner (No touchy!)
 if __name__ == "__main__":
