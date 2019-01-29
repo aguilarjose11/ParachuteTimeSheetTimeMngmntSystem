@@ -1,14 +1,15 @@
 # menulist.py contains all menus used in timesheet.py
 
 from parachuteCore import menu
-from parachuteCore.tstools import getcmdxandy
+from parachuteCore.tstools import getcmdxandy, _Getch
 # --- personalized classes ---
 import sys
 import os
 import colorama
-from msvcrt import getch
+
 
 colorama.init(convert=True)
+getch = _Getch()
 
 class mainMenu(menu.Menu):
     def getchoice(self, choice):
