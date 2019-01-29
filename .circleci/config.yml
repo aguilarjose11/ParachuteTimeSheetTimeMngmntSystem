@@ -48,8 +48,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m pytest -v --cov=parachuteCore \tests
-            python -m flake8 --exclude=./venv --ignore=E501 --statistics
+            python -m pytest -v --cov=parachuteCore --cov=parachute
+            python -m flake8 --exclude=./env --ignore=E501 --statistics
 
 
       - store_artifacts:
