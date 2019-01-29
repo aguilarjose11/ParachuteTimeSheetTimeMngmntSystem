@@ -50,7 +50,7 @@ jobs:
           command: |
             . env/bin/activate
             python -m pytest -v --cov=parachuteCore --cov=parachute --ignore=.\env
-            python -m flake8 --exclude='./env ./Dev' --ignore=E501 --statistics
+            python -m flake8 --exclude='./env ./Dev' --ignore='E501 F401 E402 E401 E261 E128' --statistics
 
 
       - store_artifacts:

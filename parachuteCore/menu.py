@@ -24,6 +24,3 @@ def runmenu(exec):
         # testing line
         choice = exec.getchoice(choice)
     return choice
-
-
-# end of file.
