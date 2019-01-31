@@ -2,6 +2,8 @@
 from parachuteCore import menulist, menu
 from parachuteCore.tstools import getcmdxandy
 
+class InvalidRunMenuReturn(Exception):
+    pass
 
 def launch():
     main = menulist.mainMenu()
@@ -15,7 +17,9 @@ def launch():
     elif choice == "2":
         exit(0)
     else:
-        pass # shall never get to this!
+        raise InvalidRunMenuReturn("Invalid return from the runmenu method.")
+    return choice
+
 
 
 # main runner (No touchy!)
