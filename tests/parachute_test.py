@@ -4,5 +4,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../p
 import parachute
 from parachuteCore import menu, menulist
 
+
 def test_launch():
     assert True

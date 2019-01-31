@@ -3,12 +3,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../parachuteCore')))
 from parachuteCore import menulist, menu
 
+
 class Test_menulist():
 
-    @pytest.mark.parametrize("keys, expected",[
+    @pytest.mark.parametrize("keys, expected", [
         ([72, 72, 72, 72, 13], "0"),
-        ([80, 80, 80, 72,13], "1"),
-        ([80, 80, 13],"2"),
+        ([80, 80, 80, 72, 13], "1"),
+        ([80, 80, 13], "2"),
         ([127, 13], "0"),
         (["sys.exit", 27], "-1")
     ])
@@ -34,18 +35,18 @@ class Test_menulist():
             returnVal = menu.runmenu(testMenu)
             assert returnVal == expected
 
-    @pytest.mark.parametrize("keys, expected",[
+    @pytest.mark.parametrize("keys, expected", [
         ([13], "0"),
         ([80, 13], "1"),
         ([80, 80, 13], "2"),
         ([80, 80, 80, 13], "3"),
         ([80, 80, 80, 80, 13], "4"),
-        ([80, 80 ,80, 80, 80, 13], "4"),
-        ([80, 80 ,80, 80, 80, 72, 13], "3"),
-        ([80, 80 ,80, 80, 80, 72, 72, 13], "2"),
-        ([80, 80 ,80, 80, 80, 72, 72, 72, 13], "1"),
-        ([80, 80 ,80, 80, 80, 72, 72, 72, 72, 13], "0"),
-        ([80, 80 ,80, 80, 80, 72, 72, 72, 72, 72, 13], "0"),
+        ([80, 80, 80, 80, 80, 13], "4"),
+        ([80, 80, 80, 80, 80, 72, 13], "3"),
+        ([80, 80, 80, 80, 80, 72, 72, 13], "2"),
+        ([80, 80, 80, 80, 80, 72, 72, 72, 13], "1"),
+        ([80, 80, 80, 80, 80, 72, 72, 72, 72, 13], "0"),
+        ([80, 80, 80, 80, 80, 72, 72, 72, 72, 72, 13], "0"),
         ([127, 13], "0"),
         (["sys.exit", 27], "-1")
     ])
@@ -71,7 +72,7 @@ class Test_menulist():
             returnVal = menu.runmenu(testMenu)
             assert returnVal == expected
 
-    @pytest.mark.parametrize("keys, expected",[
+    @pytest.mark.parametrize("keys, expected", [
         ([13], "0"),
         ([80, 13], "1"),
         ([80, 80, 13], "2"),
