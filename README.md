@@ -1,3 +1,5 @@
+Build: [![CircleCI](https://circleci.com/gh/aguilarjose11/ParachuteTimeSheetTimeMngmntSystem/tree/clone_1_16.svg?style=svg)](https://circleci.com/gh/aguilarjose11/ParachuteTimeSheetTimeMngmntSystem/tree/clone_1_16)
+
 Parachute Time management system (aka. OUTimeSheets)
 ====================================================
 
