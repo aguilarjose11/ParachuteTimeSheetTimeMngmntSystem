@@ -6,7 +6,7 @@ import pyodbc
 
 '''
 
-Objective.
+serverbase.
 ===========
 
 serverbase serves as an interface between SQL database (Parachute's database) and project.
@@ -56,8 +56,12 @@ contacting the administrator of the database will do**
 Methods:
 =========
 
-__init__(usr: string, psw: string, personalData: [lname: string/EMPTY, fname: string/EMPTY, dep: string/EMPTY]): **constructor**
----------------------------------------------------------------------------------------------
+__init__(usr: string,
+         psw: string,
+        personalData: [lname: string/EMPTY,
+                       fname: string/EMPTY,
+                       dep: string/EMPTY]): **constructor**
+--------------------------------------------------------------------------------
 
 #### Arguments:
 usr: string
@@ -75,8 +79,8 @@ new user or not.
 If the personalData List contains exactly 3 strings as described on the method
 definition, the constructor will procede to create a new user in the database
 and procede to database validation.
-If the list has more than 0 items but not 3, then, the constructor fails and the
-program crashes.
+If the list has more than 0 items but not exactly 3, then, the constructor fails
+and the program crashes.
 if the list stays empty, the constructor is said to procede to database
 validation.
 During database validation the constructor takes care of three things:
@@ -85,14 +89,18 @@ During database validation the constructor takes care of three things:
     3. authentication of the user name and password. (KeyChainError by dbdriver)
 The constructor will not take care of any exceptions; therefore, **it is the
 responsability of the method calling and instantiating the object to wrap the
-call in a try-except block!**
+call in a try-except block!** (see AuthenticationError)
 Once the connection to the server has been established and the user name and
 password were succesfully authenticated in the database, the constructor
 proccedes to save the connection string into `connectionstring: string` and the
 user name and password into `keychain: [usr: string, psw: string]`.
 
-fetchrow(id: int): [id: int, chkin: date, chkout: date, time: time, description: string/null]
----------------------------------------------------------------------------------------------
+fetchrow(id: int): [id: int,
+                    chkin: date,
+                    chkout: date,
+                    time: time,
+                    description: string/null]
+--------------------------------------------------------------------------------
 
 #### Arguments:
 id: int
@@ -110,8 +118,9 @@ If no such row exists, a NoDataOnCursorError exception is thrown.
       argument and is organized in the exact order as in the SQL database.
 _Note that the description field can be either a string or a null value._
 
-fetch(id: int, column: string): string/null
----------------------------------------------------------------------------------------------
+fetch(id: int,
+      column: string): string/null
+--------------------------------------------------------------------------------
 
 #### Arguments:
 id: int
@@ -131,8 +140,11 @@ string/null
     - The value found in the cell on the row with the same `ID` column value as
       the `id` argument and on the same column title as `column` argument.
 
-appendrow(data: [chkin: date, chkout: date, time: time, description: string/null]): void
----------------------------------------------------------------------------------------------
+appendrow(data: [chkin: date,
+                 chkout: date,
+                 time: time,
+                 description: string/null]): void
+--------------------------------------------------------------------------------
 
 #### Arguments:
 data:  [chkin: date, chkout: date, time: time, description: string/null]
@@ -148,8 +160,11 @@ is auto generated and cannot be customized.
 #### Return:
 No Return.
 
-setcell(id: int, column: string, value: string): void
----------------------------------------------------------------------------------------------
+setcell(id: int,
+        column:
+        string,
+        value: string): void
+--------------------------------------------------------------------------------
 
 #### Arguments:
 id: int
@@ -168,8 +183,11 @@ the same as the `column` argument.
 #### Return:
 No Return.
 
-getusrinfo(void): [id: int, lname: string, fname: string, dep: string/null]
----------------------------------------------------------------------------------------------
+getusrinfo(void): [id: int,
+                   lname: string,
+                   fname: string,
+                   dep: string/null]
+--------------------------------------------------------------------------------
 
 #### Arguments:
 No arguments.
@@ -187,8 +205,9 @@ This includes:
 [id: int, lname: string, fname: string, dep: string/null]
     - List containing the basic data of the user.
 
-getkeychain(void): [usr: string, psw: string]
----------------------------------------------------------------------------------------------
+getkeychain(void): [usr: string,
+                    psw: string]
+--------------------------------------------------------------------------------
 
 #### Arguments:
 No arguments.
@@ -201,8 +220,10 @@ Simply returns the keychain list. (see keychain value)
         1. user name   (usr)  [0]
         2. password    (psw)  [1]
 
-setusrinfo([lname: string, fname: string, dep: string]): void
----------------------------------------------------------------------------------------------
+setusrinfo([lname: string,
+            fname: string,
+            dep: string]): void
+--------------------------------------------------------------------------------
 
 #### Arguments:
 [lname: string, fname: string, dep: string]
@@ -218,7 +239,7 @@ _alternative method to be changed._
 No Return.
 
 setpsw(psw: string)
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 #### Arguments:
 psw: string
     - The new password to be set up.
@@ -236,10 +257,100 @@ Values:
 connectionstring: string
     - Contains the connection string to connect to the database.
 
-keychain: [usr: string, psw: string]
+keychain: [usr: string,
+           psw: string]
     - Contains the user name and password of the user.
 
 '''
+
 class serverbase():
-    def __init__():
-        pass
+    def __init__(usr, psw, personalData = []):
+
+        # Create new user.
+        if len(personalData) == 3:
+            pass
+
+        # Incorrect data type on one or more fields.
+        elif not(isinstance(personalData[0], str) and
+                 isinstance(personalData[0], str) and
+                 isinstance(personalData[0], str)):
+            errordump = ""
+            for x in personalData):
+                errordump += str(x) + "\n"
+            raise UserDataError("The user data was incorrect:\n" + errordump)
+
+        # Incorrect personalData input.
+        elif len(personalData) != 0:
+            errordump = ""
+            for x in personalData):
+                errordump += str(x) + "\n"
+            raise UserDataError("The user data was incorrect:\n" + errordump)
+
+        # Procede database validation.
+
+
+
+'''
+
+AuthenticationError.
+================================================================================
+
+Exception type that is thrown when the authentication of an user in a database
+fails.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when an attempt to authenticate an user fails or the
+user does not exist.
+If a user does not exist, the error message contained in the exception is:
+`"No User Found"`
+If the credentials used to authenticate are wrong when compared with the
+database WHERE THE USER EXISTS, then, the message contained in the exception is:
+`"Wrong Pasword"`
+
+'''
+
+class AuthenticationError(Exception):
+    pass
+
+
+'''
+
+NoDataOnCursor.
+================================================================================
+
+Exception that is thrown when the data indicated to exist in the database does
+not exist.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when a indicated cell specified by a function in a SQL
+query holds no information because it is outside of the range of the table.
+'''
+
+class NoDataOnCursor(Exception):
+    pass
+
+
+'''
+
+UserDataError.
+================================================================================
+
+Exception that is thrown when the data indicated as a user's information is
+ill-formated.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when during the creation of a new user or replacement of
+an existing variable recieves an incorrect data type or has the wrong amount of
+data. To avoid this kind of errors, read througly the documentation of every
+method!
+
+'''
+
+class UserDataError(Exception):
+    pass
