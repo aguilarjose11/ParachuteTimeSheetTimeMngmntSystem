@@ -289,7 +289,6 @@ class serverbase():
         # Procede database validation.
 
 
-
 '''
 
 AuthenticationError.
