@@ -289,7 +289,68 @@ class serverbase():
         # Procede database validation.
 
 
+
 '''
 
 AuthenticationError.
 ================================================================================
+
+Exception type that is thrown when the authentication of an user in a database
+fails.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when an attempt to authenticate an user fails or the
+user does not exist.
+If a user does not exist, the error message contained in the exception is:
+`"No User Found"`
+If the credentials used to authenticate are wrong when compared with the
+database WHERE THE USER EXISTS, then, the message contained in the exception is:
+`"Wrong Pasword"`
+
+'''
+
+class AuthenticationError(Exception):
+    pass
+
+
+'''
+
+NoDataOnCursor.
+================================================================================
+
+Exception that is thrown when the data indicated to exist in the database does
+not exist.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when a indicated cell specified by a function in a SQL
+query holds no information because it is outside of the range of the table.
+'''
+
+class NoDataOnCursor(Exception):
+    pass
+
+
+'''
+
+UserDataError.
+================================================================================
+
+Exception that is thrown when the data indicated as a user's information is
+ill-formated.
+
+Description:
+--------------------------------------------------------------------------------
+
+The exception is thrown when during the creation of a new user or replacement of
+an existing variable recieves an incorrect data type or has the wrong amount of
+data. To avoid this kind of errors, read througly the documentation of every
+method!
+
+'''
+
+class UserDataError(Exception):
+    pass
